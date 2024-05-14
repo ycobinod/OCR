@@ -61,7 +61,7 @@ export default function Home() {
     <div>
       {isLoggedIn ? (
         <>
-      <h2>Hi, {username}. Thanks for loggin in!</h2>
+      <h2>Hi, {username}. welcome to OCR</h2>
       <button onClick={handleLogout}>Logout</button>
       </>
       ):(
