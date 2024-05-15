@@ -1,89 +1,54 @@
-/* Basic reset for consistency */
-body, h2, p, form, label, input, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    align-items: center;
+/* General styles for the form container */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-top: 10px;
+  margin-left: 450px;
+  padding: 80px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-body {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+/* Style for the labels */
+form label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-div {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+/* Style for the input fields */
+form input {
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 22px); /* Adjust width to account for padding and border */
+  box-sizing: border-box;
 }
 
-h2 {
-    margin-bottom: 20px;
-    color: #333;
+/* Style for the button */
+form button {
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-p {
-    margin-bottom: 10px;
-    font-size: 14px;
+/* Button hover effect */
+form button:hover {
+  background-color: #0056b3;
 }
 
-label {
-    display: block;
-    margin-bottom: 1px;
-    font-weight: bold;
-    color: #555;
-    text-transform: lowercase;
-    letter-spacing: 1px;
-}
-
-input {
-    width: calc(100% - 10px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-input:focus {
-    border-color: #66afe9;
-    outline: none;
-    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color:black;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-button:not(:disabled):hover {
-    background-color: #0056b3;
-}
-
-p[style="color:red"] {
-    color: red;
-}
-
-p[style="color:green"] {
-    color: green;
+/* Button disabled state */
+form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }

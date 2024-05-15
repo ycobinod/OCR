@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import Layout from './pages/Layout';
 import Register from './pages/Register';
 import Login from './pages/Login'
+import FileUpload from './pages/FileUpload';
 function App() {
 
   return (
@@ -12,7 +13,7 @@ function App() {
     <Route path='/' element={<Layout/>}>
     <Route index element={<Home/>}/>
     <Route path="login" element={<Login/>}/>
-    <Route path="register" element={<Register/>}/>
+    <Route path="fileupload" element={<FileUpload/>}/>
 
     </Route>
    </Routes>

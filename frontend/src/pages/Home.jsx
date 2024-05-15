@@ -1,8 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from "axios"
-import { FaSearch } from 'react-icons/fa';
-import { Document, Page } from 'react-pdf';
+import {  Link } from "react-router-dom";
 
 export default function Home() {
   
@@ -60,18 +59,7 @@ export default function Home() {
     }
   }
   
-    const [numPages, setNumPages] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1);
-    const [file, setFile] = useState(null);
-  
-    function onFileChange(event) {
-      const uploadedFile = event.target.files[0];
-      setFile(uploadedFile);
-    }
-  
-    function onDocumentLoadSuccess({ numPages }) {
-      setNumPages(numPages);
-    }
+    
   
   return (
     <div>
@@ -80,22 +68,8 @@ export default function Home() {
         <>
         
       <h2>Hi, {username}. welcome to OCR</h2>
-      <div>
-      <div>
-        <input type="file" onChange={onFileChange} accept=".pdf" />
-      </div>
-      {file && (
-        <div>
-          <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
-            {[...Array(numPages).keys()].map((pageIndex) => (
-              <Page key={`page_${pageIndex + 1}`} pageNumber={pageIndex + 1} />
-            ))}
-          </Document>
-          <p>Page {pageNumber} of {numPages}</p>
-        </div>
-      )}
-    </div>
-
+    
+      <button><Link to="fileupload">FileUpload</Link></button>
       <button onClick={handleLogout}>Logout</button>
       </>
       ):(
