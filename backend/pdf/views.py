@@ -2,9 +2,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import PDFFile
-from .pdf_processing import extract_text_and_images_from_pdf
 
 def upload_pdf(request):
+    from .pdf_processing import extract_text_and_images_from_pdf  
     if request.method == 'POST':
         uploaded_file = request.FILES['file']
         pdf_file = PDFFile.objects.create(original_file=uploaded_file)
