@@ -51,7 +51,7 @@ export default function Register() {
 	};
 	return (
 		<div>
-            {error && <p style={{color:"red"}}>{error}</p>}
+            {error && <p style={{color:"red", textAlign:"center"}}>{error}</p>}
             { successMessage && <p style={{color:"green"}}>{successMessage}</p>}
 
 			<form>
