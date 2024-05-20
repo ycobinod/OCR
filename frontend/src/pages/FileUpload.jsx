@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './FileUpload.css'
 
 const FileUpload = () => {
     const [file, setFile] = useState(null);
@@ -18,7 +19,7 @@ const FileUpload = () => {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },
-                responseType: 'blob' // This is important for downloading files
+                responseType: 'blob' 
             });
 
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -35,12 +36,12 @@ const FileUpload = () => {
     };
 
     return (
-        <div>
-            <h2>Upload PDF</h2>
-            <input type="file" onChange={onFileChange} />
-            <button onClick={onFileUpload}>Upload</button>
-            {message && <p>{message}</p>}
-        </div>
+        <div className="upload-container">
+      <h2>Upload PDF</h2>
+      <input type="file" onChange={onFileChange} />
+      <button onClick={onFileUpload}>Upload</button>
+      {message && <p>{message}</p>}
+    </div>
     );
 };
 

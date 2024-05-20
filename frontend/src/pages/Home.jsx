@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from "axios"
 import {  Link } from "react-router-dom";
+import './Home.css'
 
 export default function Home() {
   
@@ -62,19 +63,16 @@ export default function Home() {
     
   
   return (
-    <div>
-      
+    <div className="div-container">
       {isLoggedIn ? (
         <>
-        
-      <h2>Hi, {username}. welcome to OCR</h2>
-    
-      <button><Link to="fileupload">FileUpload</Link></button>
-      <button onClick={handleLogout}>Logout</button>
-      </>
-      ):(
-      <h2>Please Login</h2>
-    )}
+          <h2>Hi, {username}. Welcome to OCR</h2>
+          <button><Link to="fileupload">FileUpload</Link></button>
+          <button onClick={handleLogout}>Logout</button>
+        </>
+      ) : (
+        <h2>Please Login first</h2>
+      )}
     </div>
     
   )
