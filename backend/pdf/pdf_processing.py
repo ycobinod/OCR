@@ -4,11 +4,8 @@ import pytesseract
 from PIL import Image
 from io import BytesIO
 
-def extract_text_and_images_from_pdf(pdf_path, output_path, image_output_folder):
+def extract_text_from_pdf(pdf_path, output_path):
     try:
-        if not os.path.exists(image_output_folder):
-            os.makedirs(image_output_folder)
-        
         doc = fitz.open(pdf_path)
         for page_index in range(len(doc)):
             page = doc[page_index]
@@ -24,11 +21,6 @@ def extract_text_and_images_from_pdf(pdf_path, output_path, image_output_folder)
                 image_width = base_image["width"]
                 image_height = base_image["height"]
                 page.delete_image(xref)
-                image_path = os.path.join(image_output_folder, f"page_{page_index}_image_{image_index}.png")
-                
-                # Save the image and verify its path
-                image.save(image_path)
-                print(f"Saved image: {image_path}")
                 
                 textbox = fitz.Rect(0, 0, image_width, image_height)
                 page.insert_textbox(textbox, text)
