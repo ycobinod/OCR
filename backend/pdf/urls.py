@@ -5,4 +5,4 @@ from pdf import views
 
 urlpatterns = [
     path('upload/', views.upload_pdf, name='upload_pdf'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 

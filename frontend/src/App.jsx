@@ -5,6 +5,7 @@ import Layout from './pages/Layout';
 import Register from './pages/Register';
 import Login from './pages/Login'
 import FileUpload from './pages/FileUpload';
+import Search from './pages/Search';
 function App() {
 
   return (
@@ -15,6 +16,8 @@ function App() {
     <Route path="register" element={<Register/>}/>
     <Route path="login" element={<Login/>}/>
     <Route path="fileupload" element={<FileUpload/>}/>
+    <Route path="search" element={<Search/>}/>
+     
 
     </Route>
    </Routes>

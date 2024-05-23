@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/", include("accounts.urls")),
     path('pdf/', include('pdf.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+     path('search/' , include('app_search.urls'))
+] 

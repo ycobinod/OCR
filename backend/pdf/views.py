@@ -5,6 +5,7 @@ from PIL import Image
 from io import BytesIO
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.core.files.base import ContentFile
 from .models import PDFFile
 
 @csrf_exempt
@@ -12,16 +13,22 @@ def upload_pdf(request):
     if request.method == 'POST':
         if 'file' not in request.FILES:
             return JsonResponse({'error': 'No file uploaded'}, status=400)
-        uploaded_file = request.FILES['file']
-        pdf_file = PDFFile.objects.create(original_file=uploaded_file)
         
+        uploaded_file = request.FILES['file']
+        pdf_file = PDFFile(original_file=uploaded_file)
+        pdf_file.save()
+
         # Process the PDF 
         output = BytesIO()
         process_pdf(uploaded_file, output)
-        
-        response = HttpResponse(output.getvalue(), content_type='application/pdf')
-        response['Content-Disposition'] = f'attachment; filename="{uploaded_file.name}"'
-        
+
+        # Save processed PDF to processed_file field
+        processed_pdf_data = output.getvalue()
+        pdf_file.processed_file.save(f'processed_{uploaded_file.name}.pdf', ContentFile(processed_pdf_data))
+
+        response = HttpResponse(processed_pdf_data, content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="processed_{uploaded_file.name}"'
+
         return response
     return JsonResponse({'error': 'Invalid request'}, status=400)
 

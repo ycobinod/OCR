@@ -44,7 +44,7 @@ INSTALLED_APPS = [
      'rest_framework_simplejwt.token_blacklist',
      'corsheaders',
      'pdf',
-    'app_search'
+     'app_search'
 
 ]
 
@@ -183,5 +183,10 @@ SIMPLE_JWT = {
 
 
 CORS_ALLOW_ALL_ORIGINS = True
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#elasticsearch
+ELASTIC_URL = 'https://127.0.0.1:9200/'
+ELASTIC_INDEX = 'books'
+ELASTIC_API_KEY = 'TzJuSHBJOEJqUGJjSFFsNFQxTlA6bW1VYXBkUUdTQWFId3FVbFV1TXc4UQ=='
