@@ -69,7 +69,7 @@ export default function Home() {
           <h2>Hi, {username}. Welcome to OCR</h2>
           <button><Link to="fileupload">FileUpload</Link></button>
           <button ><Link to ="search"> Search</Link></button>
-          <button onClick={handleLogout}>Logout pro</button>
+          <button onClick={handleLogout}>Logout</button>
         </>
       ) : (
         <h2>Please Login first</h2>
